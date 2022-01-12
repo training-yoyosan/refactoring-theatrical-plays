@@ -4,23 +4,23 @@ function statement(invoice, plays) {
   let result = `Statement for ${invoice.customer}\n`;
   const format = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD", minimumFractionDigits: 2}).format;
 
-  function amountFor(perf, play) {
+  function amountFor(aPerfomance, play) {
     let result = 0;
 
     switch (play.type) {
       case "tragedy":
         result = 40000;
-        if (perf.audience > 30) {
-          result += 1000 * (perf.audience - 30);
+        if (aPerfomance.audience > 30) {
+          result += 1000 * (aPerfomance.audience - 30);
         }
 
         break;
       case "comedy":
         result = 30000;
-        if (perf.audience > 20) {
-          result += 10000 + 500 * (perf.audience - 20);
+        if (aPerfomance.audience > 20) {
+          result += 10000 + 500 * (aPerfomance.audience - 20);
         }
-        result += 300 * perf.audience;
+        result += 300 * aPerfomance.audience;
 
         break;
       default:
